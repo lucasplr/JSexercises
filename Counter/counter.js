@@ -1,32 +1,15 @@
 const counter = document.querySelector(".register")
-const btnres = document.getElementById("btn2")
-const btninc = document.getElementById("btn")
-const btndec = document.getElementById("btn3")
 
-let cont = 0
+const btns = document.querySelectorAll(".btn")
 
-btn.addEventListener('click', function(){
-    cont = cont - 1 
-    counter.textContent = cont
-    return cont
+let count = 0
+
+btns.forEach(function(btn){
+    btn.addEventListener("click", function(e){
+        const styles = e.currentTarget.classList
+        if (styles.contains("decrease")){
+            cont--
+        }
+        counter.textContent = count
     })
-
-btn2.addEventListener('click', function(){
-    // get random number between 0 - 3[0]
-        cont = 0
-        counter.textContent = cont
-        return cont
-    })
-
-btn3.addEventListener('click', function(){
-        // get random number between 0 - 3[0]
-            cont = cont + 1
-            counter.textContent = cont
-            return cont
-     })
-
-
-
-function getRandomNumber(){
-    return Math.floor(Math.random() * colors.length)
-}
+})
