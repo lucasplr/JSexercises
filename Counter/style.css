@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    background-color: rgba(206, 201, 201, 0.705);
+    height: 1000px;
+}
+main h1{
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    padding-top: 200px;
+}
+.register{
+    font-size: 2em;
+    margin: 25px 0 15px 0;
+    text-align: center;
+}
+button{
+    margin: 25px 5px;
+    padding: 5px;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+}
