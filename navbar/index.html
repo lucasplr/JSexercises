@@ -5,13 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navbar</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <a href="index.html"><img src="image/logo.jpg" alt="" id="logo-img"></a>
+    <header>        
         <nav>
-            <ul>
+        <div class="nav-header">
+        <a href="index.html"><img src="image/logo.jpg" alt="" id="logo-img"></a>
+        <button class="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        </div>
+            <ul class="links">
                 <li>
                     <a href="index.html">Home</a>
                     <a href="index.html"> About</a>
@@ -19,8 +29,10 @@
                     <a href="index.html">Contact</a>
                 </li>
             </ul>
-        </nav>
+        <div class="social">
         <a href="index.html"><img src="image/git-logo.png" alt="" id="logo"></a>
+        </div>
+        </nav>
     </header>
 
 
@@ -29,4 +41,6 @@
 </body>
 </html>
 
-// Fist stet, only the html and css part.
+
+
+<!--Fist stet, only the html and css part.
