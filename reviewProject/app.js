@@ -40,52 +40,43 @@ const rand = document.querySelector(".random")
 
 let current = 0
 
-next.addEventListener("click", function(){
-    if (current > cars.length){
-        current = 0
-    }else{
-        current++
-    }
-    const item = cars[current];
-    image.src = item.img
-    model.innerHTML = item.model
-    year.innerHTML = item.year
-    info.innerHTML = item.info
-})
-prev.addEventListener("click", function(){
-    if (current < 0){
-        current = cars.length
-    }else{
-        current--
-    }
-    const item = cars[current];
-    image.src = item.img
-    model.innerHTML = item.model
-    year.innerHTML = item.year
-    info.innerHTML = item.info
-})
-rand.addEventListener("click", function(){
-    current = Math.floor(Math.random() * cars.length)
-    const item = cars[current];
-    image.src = item.img
-    model.innerHTML = item.model
-    year.innerHTML = item.year
-    info.innerHTML = item.info
-})
-
-
-
-
 window.addEventListener("DOMContentLoaded", function(){
+    showCar(current)
+})
+
+function showCar(car){
     const item = cars[current];
     image.src = item.img
     model.innerHTML = item.model
     year.innerHTML = item.year
     info.innerHTML = item.info
-})
+}
 
 
 
 /*
 Next will see the video to solve in the best solution.
+
+Instead of doing a EventListener for all the buttons, it is better to do a new function, a do a callback inside the window to this new function;
 */
+
+next.addEventListener("click", function(){
+    if (current > cars.length - 1){ //Because the last number of this array is 3, that is in the index 4, so, to be correct need's a - 1.
+        current = 0
+    }else{
+        current++
+    }
+    showCar(current)
+})
+prev.addEventListener("click", function(){
+    if (current < 0){
+        current = cars.length - 1
+    }else{
+        current--
+    }
+    showCar(current)
+})
+rand.addEventListener("click", function(){
+    current = Math.floor(Math.random() * cars.length)//In that case - 1 is not used, because the Math.floor takes the lower integer, so, if the number is 3.5, for example, Math.floor wil get 3.
+    showCar(current)
+})

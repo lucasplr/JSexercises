@@ -46,8 +46,8 @@ main{
 }
 .img-container{
     position: relative;
-    width: 180px;
-    height: 180px;
+    width: 240px;
+    height: 240px;
     margin: 30px auto;
     margin-bottom: 1.5em;
     border-radius: 50%;
@@ -57,7 +57,7 @@ main{
     width: 100%;
     display: block;
     height: 100%;
-    object-fit: fill;
+
     position: relative;
 }
 #model{
@@ -90,28 +90,38 @@ main{
     cursor: pointer;
     padding-bottom: 10px;
 }
-.prev:hover,
-.next:hover{
+.prev:hover{
     transition: ease-in 0.2s;
-    margin: 0 0.3em;
+    transform: translate(-20%, 0%);
     font-size: 1.2em;
     color: blue;
     background: transparent;
-    border-color: transparent;
     cursor: pointer;
-    padding-bottom: 5px;
+    padding: 0;
+}
+.next:hover{
+    transition: ease-in 0.2s;
+    transform: translate(20%, 0%);
+    font-size: 1.2em;
+    color: blue;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
 }
 .random{
-    background: rgba(124, 137, 155, 0.815);
+    background: rgba(72, 129, 209, 0.884);
     border-color: rgb(143, 148, 221);
     padding: 5px;
     margin-bottom: 10px;
     cursor: pointer;
+    border-radius: 10px;
 }
 .random:hover{
     transition: ease-out 0.2s;
-    background: rgba(80, 84, 143, 0.815);
-    border-color: rgb(30, 31, 46);
+    transform: scale(1.05);
+    background: rgba(19, 28, 153, 0.815);
+    border-color: rgb(3, 3, 14);
+    color: white;
     padding: 5px;
     margin-bottom: 10px;
     cursor: pointer;
