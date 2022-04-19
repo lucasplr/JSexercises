@@ -41,11 +41,11 @@ main{
 Here comes the Navbar
 */
 header{
-    background-color: rgb(100, 100, 100);;
+    background-color: #EEF0EF
 }
 nav{
-    box-shadow: 1px 1px 11px rgba(0, 0, 0, 0.363);
-    background-color: rgb(100, 100, 100);;
+    box-shadow: 1px 1px 11px black;
+    background-color: #EEF0EF
 }
 .nav-header{
     display: flex;
@@ -71,7 +71,7 @@ nav{
     text-transform: capitalize;
     transition: all 0.3s linear;
     padding: 0.5em 1em;
-    background-color: rgb(100, 100, blue);
+    background-color: #EEF0EF;
 }
 .links a:hover{
     background-color: rgba(0, 0, 255, 0.452);
@@ -91,7 +91,7 @@ nav{
 
 @media screen and (min-width: 800px){
     header{
-        background-color: #fff;
+        background-color: #EEF0EF;
         box-shadow: 1px 1px 11px rgba(0, 0, 0, 0.26);
     }
     .nav-header{
@@ -102,7 +102,7 @@ nav{
     }
     nav{
         max-width: 1170px;
-        background-color: white;
+        background-color: #EEF0EF;
         margin: 0 auto;
         display: flex;
         align-items: center;
@@ -120,7 +120,7 @@ nav{
         display: inline-block;
         text-transform: capitalize;
         padding: 0.5em 1em;
-        background-color: #fff;
+        background-color: #EEF0EF;
     }
     .links a:hover{
         background-color: transparent;
