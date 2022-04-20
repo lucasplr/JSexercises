@@ -12,7 +12,7 @@ btn.addEventListener("click", function(){
     menu.classList.toggle("show-sidebar")
     })
   btn2.addEventListener("click", function(){
-    menu.classList.toggle("show-sidebar")
+    menu.classList.remove("show-sidebar")
   })
     
     
