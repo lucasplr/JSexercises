@@ -78,49 +78,54 @@ const menu = [
 
 const sectionCenter = document.querySelector(".section-center")
 
+const filterBtns = document.querySelectorAll(".filter-btn")
+//load items
 window.addEventListener("DOMContentLoaded", function(){
-    let displayMenu = menu.map(function(item){
-        return `            <article class="menu-item">
-        <img src="${item.img}" alt="menu item" class="photo">
-        <div class="item-info">
-            <header>
-                <h4>${item.title}</h4>
-                <h4 class="price">${item.price}</h4>
-            </header>
-                <p class="item-text">${item.desc}</p>
-        </div>
-    </article>`;
+  displayMenuitem(menu)
+})
+//filter items
+filterBtns.forEach(function(btn){
+  btn.addEventListener("click", function(e){
+    const category = e.currentTarget.dataset.id
+    const menuCategory = menu.filter(function(menuItem){
+      console.log(menuItem.category)
+    if (menuItem.category === category){
+      return menuItem
+    }
     })
-    console.log(displayMenu)
+    ; //dataset: 
+    if(category === "all"){
+      displayMenuitem(menu)
+    }else{
+      displayMenuitem(menuCategory)
+    }
+  })
 })
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function displayMenuitem(menuItems){
+  let displayMenu = menuItems.map(function(item){
+    //let used because is possible  to modify the result
+      return `            <article class="menu-item">
+      <img src="${item.img}" alt="menu item" class="photo">
+      <div class="item-info">
+          <header>
+              <h4>${item.title}</h4>
+              <h4 class="price">${item.price}</h4>
+          </header>
+              <p class="item-text">${item.desc}</p>
+      </div>
+  </article>`;
+  })
+  displayMenu = displayMenu.join("")
+  sectionCenter.innerHTML = displayMenu
+}
 
 
 
     /*
-
+First part completed.
+Now will make in a form that is a new category is added, the button will be added dinamically
     */
