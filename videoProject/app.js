@@ -4,9 +4,15 @@
 
 const btn = document.querySelector(".switch-btn")
 const video = document.querySelector(".video-container")
+const hidePre = document.querySelector(".preloader")
+
+
+window.addEventListener("load", function(){
+    hidePre.classList.add("hide-preloader")
+})
 
 btn.addEventListener("click", function(){
-    if (!btn.classList.includes("slide")){
+    if (!btn.classList.contains("slide")){
         btn.classList.add("slide")
         video.pause()
     }else{
@@ -14,3 +20,10 @@ btn.addEventListener("click", function(){
         video.play()
     }
 })
+
+
+window.addEventListener("DOMContentLoaded", function(){
+    displayMenuitem(menu)
+    displayMenuButtons()
+  
+    })
