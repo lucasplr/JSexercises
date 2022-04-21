@@ -1,3 +1,12 @@
+//Need to get unique categories
+//iterate over the categories and return buttons
+//make sure to select buttons when they are available
+//Is needed to use reduce, to create only 1 button for each category.
+
+
+
+
+
 const menu = [
     
 {
@@ -72,60 +81,86 @@ const menu = [
     img: "./images/item-9.jpeg",
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
+  {
+    id: 10,
+    title: "bison steak",
+    category: "dinner",
+    price: 22.99,
+    img: "./images/item-10.jpeg",
+    desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
+  },
 
     ];
 
 
 const sectionCenter = document.querySelector(".section-center")
+const btnContainer = document.querySelector(".btn-container")
 
-const filterBtns = document.querySelectorAll(".filter-btn")
 //load items
 window.addEventListener("DOMContentLoaded", function(){
   displayMenuitem(menu)
-})
-//filter items
-filterBtns.forEach(function(btn){
-  btn.addEventListener("click", function(e){
-    const category = e.currentTarget.dataset.id
-    const menuCategory = menu.filter(function(menuItem){
-      console.log(menuItem.category)
-    if (menuItem.category === category){
-      return menuItem
-    }
-    })
-    ; //dataset: 
-    if(category === "all"){
-      displayMenuitem(menu)
-    }else{
-      displayMenuitem(menuCategory)
-    }
+  displayMenuButtons()
+
   })
-})
-
-
-
+//filter items
 
 function displayMenuitem(menuItems){
   let displayMenu = menuItems.map(function(item){
     //let used because is possible  to modify the result
-      return `            <article class="menu-item">
-      <img src="${item.img}" alt="menu item" class="photo">
-      <div class="item-info">
+    return `            <article class="menu-item">
+    <img src="${item.img}" alt="menu item" class="photo">
+    <div class="item-info">
           <header>
-              <h4>${item.title}</h4>
-              <h4 class="price">${item.price}</h4>
+          <h4>${item.title}</h4>
+          <h4 class="price">${item.price}</h4>
           </header>
-              <p class="item-text">${item.desc}</p>
-      </div>
-  </article>`;
-  })
+          <p class="item-text">${item.desc}</p>
+          </div>
+          </article>`;
+        })
   displayMenu = displayMenu.join("")
   sectionCenter.innerHTML = displayMenu
 }
 
+function displayMenuButtons(){
+  const categories = menu.reduce(function(values, item){
+    if (!values.includes(item.category)){
+      values.push(item.category)
+    }else{
+      return values
+    }
+    return values // with reduce always have to return the first parameter
+  }, ["all"])
+  const categoryBtns = categories
+  .map(function (category) {
+    return `<button type="button" class="filter-btn" data-id=${category}>
+    ${category}
+    </button>`;
+  })
+  .join("");
+  btnContainer.innerHTML = categoryBtns;
+  const filterBtns = document.querySelectorAll(".filter-btn")
+  filterBtns.forEach(function(btn){
+    btn.addEventListener("click", function(e){
+      const category = e.currentTarget.dataset.id
+      const menuCategory = menu.filter(function(menuItem){
+        console.log(menuItem.category)
+      if (menuItem.category === category){
+        return menuItem
+      }
+      })
+      ; //dataset: 
+      if(category === "all"){
+        displayMenuitem(menu)
+      }else{
+        displayMenuitem(menuCategory)
+      }
+    })
+  })
+}
 
 
-    /*
+/*
 First part completed.
 Now will make in a form that is a new category is added, the button will be added dinamically
-    */
+*/
