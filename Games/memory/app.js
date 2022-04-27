@@ -51,18 +51,33 @@ const cardArray = [
 
 const grid = document.querySelector(".grid")
 
+const chosenCards = []
+
 cardArray.sort(() => 0.5 - Math.random())
 
+
+// function to create the grid with random positions of the images
 function boardCreator () {
     cardArray.forEach((card, index) => {
         const cardA = document.createElement('img')
         cardA.setAttribute('src', 'images/blank.png')
         cardA.setAttribute('data-id', index)
-        console.log(cardA)
-        grid.append(cardA)
+        cardA.addEventListener("click", flipCard)
+        grid.appendChild(cardA)
+
     })
 }
 
+function flipCard(e){
+    let tg = e.currentTarget.dataset.id
+    chosenCards.push(cardArray[tg].name)
+    e.currentTarget.setAttribute('src', cardArray[tg].img)
+}
+
 boardCreator()
+
+
+
+
 
 
