@@ -6,9 +6,9 @@ const result = document.getElementById("result")
 const btns = document.querySelectorAll(".btn")
 
 
-btns.forEach(function(btn){
+btns.forEach(btn => 
 
-    btn.addEventListener("click", function(e){
+    btn.addEventListener("click", (e) => {
         let option = options[Math.floor(Math.random() * options.length)]
         let click = e.currentTarget.id
         if(option === click){
@@ -43,7 +43,7 @@ btns.forEach(function(btn){
         console.log(option)
         console.log(click)
     })
-})
+)
 
 
 /*
