@@ -1,4 +1,4 @@
-const options = ["rock", "paper", "scissor"]
+let options = ["rock", "paper", "scissor"]
 
 const computer = document.getElementById("computer-choice")
 const user = document.getElementById("user-choice")
@@ -40,32 +40,7 @@ btns.forEach(btn =>
             user.textContent = click
             result.textContent = "user win's"
         }
-        console.log(option)
-        console.log(click)
     })
 )
 
-
-/*
-btns.forEach(function(btn){
-    btn.addEventListener("click", function(e){
-        const styles = e.currentTarget.classList
-        if (styles.contains("decrease")){
-            count--
-        }else if (styles.contains("increase")){
-            count++
-        }else{
-            count = 0
-        }
-        counter.textContent = count
-        if(count > 0){
-            counter.style.color = "green"
-        }else if (count < 0){
-            counter.style.color = "red"
-        }else{
-            counter.style.color = "black"
-        }
-    })
-    
-})
-*/
+// remake using a callback function inside the event listener
