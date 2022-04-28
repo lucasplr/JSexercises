@@ -17,6 +17,7 @@ function randomSquare(){
     let randomPosition = squares[Math.floor(Math.random
         () * squares.length)]
     randomPosition.classList.add('mole')
+    
 }
 
 squares.forEach(square =>{
@@ -49,7 +50,7 @@ function counterTime(){
 }
 
 
-let randomize = setInterval(randomSquare, 1000)
+let randomize = setInterval(randomSquare, 500)
 
 let countDownTime = setInterval(counterTime, 1000)
 
