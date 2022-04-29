@@ -23,3 +23,10 @@
     background-color: red;
     border-radius: 5px;
 }
+.ball{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+}
