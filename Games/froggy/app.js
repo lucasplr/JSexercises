@@ -10,6 +10,7 @@ const carsRight = document.querySelectorAll(".car-right")
 
 let width = 9
 let timerId
+let outComeId
 let counter = 20
 
 let currentIndex = 76
@@ -47,12 +48,15 @@ function moveFrog(e){
 function autoMoveElements(){
     counter--
     timeLeft.textContent = counter
-    lose()
-    win()
     logsLeft.forEach(logLeft => moveLogLeft(logLeft))
     logsRight.forEach(logRight => moveLogRight(logRight))
     carsLeft.forEach(carLeft => moveCarLeft(carLeft))
     carsRight.forEach(carRight => moveCarRight(carRight))
+}
+
+function checkOutCome(){
+    lose()
+    win()
 }
 
 function autoMoveCars(){
@@ -154,16 +158,12 @@ function moveLogRight(logRight){
 function lose(){
     if (squares[currentIndex].classList.contains('c1') ||
         squares[currentIndex].classList.contains('l4') ||
-        squares[currentIndex].classList.contains('l5')
+        squares[currentIndex].classList.contains('l5') ||
+        counter <= 0
         ){
         result.textContent = "You lose!"
         clearInterval(timerId)
-        squares[currentIndex].classList.remove("frog")
-        document.removeEventListener("keydown", moveFrog)
-    }
-    if (counter <= 0){
-        result.textContent = "You lose!"
-        clearInterval(timerId)
+        clearInterval(outComeId)
         squares[currentIndex].classList.remove("frog")
         document.removeEventListener("keydown", moveFrog)
     }
@@ -181,10 +181,13 @@ btn.addEventListener("click", () =>{
     if(timerId){
         clearInterval(timerId)
         timerId = null
+        outComeId = null
         document.removeEventListener("keydown", moveFrog)
     }else{
         timerId = setInterval(autoMoveElements, 1000)
         document.addEventListener("keydown", moveFrog)
+        outComeId = setInterval(checkOutCome, 1)
     }
 })
+
 
