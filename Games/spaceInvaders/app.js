@@ -49,6 +49,14 @@ function moveShooter(e){
 }
 document.addEventListener("keydown", moveShooter)
 
+function checkCollision(){
+    if (squares[currentShooterIndex].classList.contains('invader')){
+        alert('You lose')
+        clearInterval(invadersId)
+    }
+}
+
+
 function moveInvaders(){
     const leftEdge = alienInvaders[0] % width === 0
     const rightEdge = alienInvaders[alienInvaders.length - 1] % width === width - 1
@@ -71,6 +79,7 @@ function moveInvaders(){
         alienInvaders[i] += direction
     }
     draw()
+    checkCollision()
 }
 
-invadersId = setInterval(moveInvaders, 500);
+invadersId = setInterval(moveInvaders, 50);
