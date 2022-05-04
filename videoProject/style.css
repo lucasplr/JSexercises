@@ -220,7 +220,7 @@ h1 {
 /* switch button */
 
 .switch-btn {
-  position: absolute;
+  position: relative;
   bottom: 7%;
   left: 7%;
   width: 8rem;
@@ -241,6 +241,7 @@ h1 {
 }
 .switch {
   position: absolute;
+  visibility: hidden;
   width: 50%;
   height: 100%;
   top: 0;
