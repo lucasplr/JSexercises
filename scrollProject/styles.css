@@ -199,6 +199,7 @@ nav {
   padding: 1rem 1.5rem;
 }
 /* fixed nav */
+
 .fixed-nav {
   position: fixed;
   top: 0;
